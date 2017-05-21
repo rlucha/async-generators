@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
     entry: "./index.js",
     output: {
-        filename: "bundle.js"
+        filename: "build/bundle.js"
     },
     target: "node",
     devtool: "source-maps",
@@ -22,7 +22,7 @@ module.exports = {
             }
         ]
     },
-    //plugins: [new BabiliPlugin()],
+    plugins: [new BabiliPlugin()],
     resolve: {
         modules: [path.join(process.cwd(), "app"), "node_modules"],
         extensions: [".js", ".json"]

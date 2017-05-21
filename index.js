@@ -1,3 +1,4 @@
+import bp from "babel-polyfill";
 import axios from 'axios';
 
 // async function* tick() {
@@ -13,17 +14,21 @@ import axios from 'axios';
 // }
 
 async function* tick() {
-  debugger;
-  const thing = await axios.get('http://www.google.com');
-  yield await thing;
+  const google = await axios.get('http://www.google.com');
+  const amazon = await axios.get('http://www.google.com');
+  yield await google;
+  yield await amazon;
 }
 
 async function wait() {
-  const ticks = await tick().next();
+  let ticks = [];
+  for await (const responses of tick()) {
+    ticks.push(responses);
+  }
+
   return ticks;
 }
 
 wait().then(e =>{
-  debugger;
-  console.log(e.value)
+  console.log(e)
 });
