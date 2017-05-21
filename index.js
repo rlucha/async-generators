@@ -1,5 +1,5 @@
 import bp from "babel-polyfill";
-import axios from 'axios';
+import axios from 'axios'; 
 
 // async function* tick() {
 //   const gen = yield;

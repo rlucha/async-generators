@@ -14,10 +14,6 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: "babel-loader",
-                query: {
-                    presets: ["stage-3"],
-                    plugins: []
-                },
                 exclude: /(node_modules|bower_components)/,
             }
         ]
