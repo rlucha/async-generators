@@ -15,13 +15,15 @@ import axios from 'axios';
 
 async function* tick() {
   const google = await axios.get('http://www.google.com');
-  const amazon = await axios.get('http://www.google.com');
+  const amazon = await axios.get('http://www.amazon.com');
   yield await google;
   yield await amazon;
 }
 
 async function wait() {
   let ticks = [];
+  // This is a good replacement for Promise.all
+  // and allows for better control
   for await (const responses of tick()) {
     ticks.push(responses);
   }
